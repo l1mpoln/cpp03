@@ -6,7 +6,7 @@
 /*   By: vkuzmin <zxcmasterass@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 19:41:34 by vkuzmin           #+#    #+#             */
-/*   Updated: 2023/08/18 06:11:15 by vkuzmin          ###   ########.fr       */
+/*   Updated: 2023/08/18 18:43:03 by vkuzmin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << _name << " Destructor called" << std::endl;
+    std::cout << "ClapTrap " << _name << " Destructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
@@ -61,16 +61,16 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
     if (_energy_points <= 0 || _hit_points <= 0)
     {
-        std::cout << _name << " has no energy or hitpoints to repair!" << std::endl;
+        std::cout << "ClapTrap " << _name << " has no energy or hitpoints to repair!" << std::endl;
         return ;
     }
     if (_hit_points + amount > 10)
     {
-        std::cout << _name << " has max hitpoints!" << std::endl;
+        std::cout << "ClapTrap " << _name << " has max hitpoints!" << std::endl;
         _hit_points = 10;
         return ;
     }
-    std::cout << _name << " is repaired by " << amount << " points!" << std::endl;
+    std::cout << "ClapTrap " << _name << " is repaired by " << amount << " points!" << std::endl;
     _hit_points += amount;
     _energy_points -= 1;
 }
@@ -80,9 +80,9 @@ void ClapTrap::takeDamage(unsigned int amount)
     if ((unsigned int)_hit_points <= amount)
     {
         _hit_points = 0;
-        std::cout << _name << " has no hitpoints left!" << std::endl;
+        std::cout << "ClapTrap " << _name << " has no hitpoints left!" << std::endl;
         return ;
     }
-    std::cout << _name << " takes " << amount << " points of damage!" << std::endl;
+    std::cout << "ClapTrap " << _name << " takes " << amount << " points of damage!" << std::endl;
     _hit_points -= amount;
 }

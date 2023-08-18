@@ -6,7 +6,7 @@
 /*   By: vkuzmin <zxcmasterass@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 05:45:13 by vkuzmin           #+#    #+#             */
-/*   Updated: 2023/08/18 05:53:23 by vkuzmin          ###   ########.fr       */
+/*   Updated: 2023/08/18 18:19:34 by vkuzmin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 FragTrap::~FragTrap()
 {
     std::cout << "FragTrap " << _name << " destructor called" << std::endl;
+}
+
+void FragTrap::attack(const std::string &target)
+{
+    if (_hit_points <= 0 || _energy_points <= 0)
+    {
+        std::cout << "FragTrap" << _name << "has no energy to attack" << std::endl;
+        return ;
+    }
+    std::cout << "FragTrap " << _name << " attacks " << target << ", causing " << _attack_damage << " points of damage!" << std::endl;
+    _energy_points -= 1;
 }
 
 void FragTrap::highFivesGuys()
